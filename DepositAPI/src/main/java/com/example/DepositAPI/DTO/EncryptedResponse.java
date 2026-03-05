@@ -1,35 +1,15 @@
 package com.example.DepositAPI.DTO;
 
 
-
 public class EncryptedResponse {
 
     private String encryptedKey;
-    private String iv;
-    private String cipherText;
-
-    public EncryptedResponse() {}
-
-    public EncryptedResponse(String encryptedKey, String iv, String cipherText) {
-        this.encryptedKey = encryptedKey;
-        this.iv = iv;
-        this.cipherText = cipherText;
-    }
-
     public String getEncryptedKey() {
         return encryptedKey;
     }
 
     public void setEncryptedKey(String encryptedKey) {
         this.encryptedKey = encryptedKey;
-    }
-
-    public String getIv() {
-        return iv;
-    }
-
-    public void setIv(String iv) {
-        this.iv = iv;
     }
 
     public String getCipherText() {
@@ -39,4 +19,27 @@ public class EncryptedResponse {
     public void setCipherText(String cipherText) {
         this.cipherText = cipherText;
     }
+
+    public String getSignature() {
+        return signature;
+    }
+
+    public void setSignature(String signature) {
+        this.signature = signature;
+    }
+
+    private String cipherText;
+    private String signature;
+
+    public EncryptedResponse() {}
+
+    public EncryptedResponse(String encryptedKey,
+                             String cipherText,
+                             String signature) {
+        this.encryptedKey = encryptedKey;
+        this.cipherText = cipherText;
+        this.signature = signature;
+    }
+
+    // getters & setters
 }
